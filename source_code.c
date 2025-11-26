@@ -1,11 +1,4 @@
-/* travel_fixed_by_destination.c
-   Travel booking program with flights & hotels matched to destination.
-   - Flight lists and hotel lists now depend on chosen destination.
-   - Keeps same file format for info.txt (16 fields).
-   - Input validation improved a bit.
-   - Checkout date computed correctly using month lengths & leap years.
-   - Names must be single token (no spaces) to keep file format simple.
-*/
+// Tourist Management System 
 
 #include <stdio.h>
 #include <string.h>
@@ -440,4 +433,5 @@ int main() {
     getchar();
     menu();
     return 0;
+
 }

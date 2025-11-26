@@ -1,4 +1,4 @@
-// Tourist Management System 
+// Tourist Management System
 
 #include <stdio.h>
 #include <string.h>
@@ -81,7 +81,7 @@ void print_details() {
     getchar();
 }
 
-/* Print tickets for array of IDs and compute total */
+/* Print tickets for array of IDs and calc total */
 void print_ticket(int a[], int cnt) {
     system("cls");
     int z, no;
@@ -130,16 +130,21 @@ void print_ticket(int a[], int cnt) {
 }
 
 /* Check if id exists by scanning info.txt */
+
 int id_exists(int id) {
     FILE *f = fopen("info.txt", "r");
     if (!f) return 0; /* no file => id not present */
+
     int no;
+    struct info tmp;
+    int ld, lm, ly, ld1, lm1, yr1_local;
+
     while (1) {
         int r = fscanf(f, "%d %29s %d %c %d %19s %29s %f %3s %d %d %d %d %d %d %29s",
                        &no,
-                       i.name, &i.age, &i.gender, &i.cost,
-                       i.destination, i.fname, &i.time, i.shift,
-                       &d,&m,&y,&d1,&m1,&yr1, i.hname);
+                       tmp.name, &tmp.age, &tmp.gender, &tmp.cost,
+                       tmp.destination, tmp.fname, &tmp.time, tmp.shift,
+                       &ld,&lm,&ly,&ld1,&lm1,&yr1_local, tmp.hname);
         if (r != 16) break;
         if (no == id) { fclose(f); return 1; }
     }
@@ -175,7 +180,7 @@ void input_batch(int cnt, int cno) {
         system("cls");
         printf("\n ENTER %d PERSON DETAILS (Destination: %s)\n", x+1, i.destination);
 
-        /* choose ID and ensure uniqueness */
+        /* choose ID and for uniqueness */
         do {
             printf("CHOOSE YOUR TRAVEL ID (1-10000): ");
             if (scanf("%d", &id) != 1) { while(getchar()!='\n'); id = -1; }
@@ -433,5 +438,4 @@ int main() {
     getchar();
     menu();
     return 0;
-
 }
